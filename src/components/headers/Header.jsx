@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { faClose, faBars } from "@fortawesome/free-solid-svg-icons";
 import { Icons } from "../../shared";
+import { NavLink } from "react-router-dom";
 
 function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -10,41 +11,55 @@ function Header() {
 
   return (
     <header className="flex justify-between mb-10">
-      {/* left navigation part of details */}
       <div className="flex items-center gap-4">
         <span className="w-10 h-10 rounded-full bg-orange-400"></span>
-        {/* when mobile devie */}
         <h2 className="text-2xl font-serif md:font-bold block md:hidden">AR</h2>
-        {/* when desktop device */}
         <h2 className="text-3xl font-serif md:font-bold hidden md:block">
           Abdur Rahman
         </h2>
         <h4 className="text-sm md:text-xl font-mono">Software Engineer</h4>
       </div>
 
-      {/* right navigation of user */}
       <div className="hidden md:flex items-center gap-2">
-        <button className="border-r border-gray-400 px-3 hover:text-amber-600 duration-200 ">
-          <a
-            target="_blank"
-            href="https://drive.google.com/file/d/1aX_zJcrWOPAtwqb5YiL6E__VykDGH96q/view?usp=sharing"
+        <button className="border-r border-gray-400 px-3 ">
+          <NavLink
+            to="/"
+            className={({ isActive }) =>
+              `${isActive ? "text-amber-600" : "text-black"}`
+            }
           >
             My Portfolio
-          </a>
+          </NavLink>
         </button>
         <button className="border-r border-gray-400 px-3 hover:text-amber-600 duration-200 ">
-          <a
-            target="_blank"
-            href="https://drive.google.com/file/d/1aX_zJcrWOPAtwqb5YiL6E__VykDGH96q/view?usp=sharing"
+          <NavLink
+            to="/resume"
+            className={({ isActive }) =>
+              `${isActive ? "text-amber-600" : "text-black"}`
+            }
           >
             Resume
-          </a>
+          </NavLink>
         </button>
         <button className="border-r border-gray-400 px-3 hover:text-amber-600 duration-200">
-          <a href="#project">Projects</a>
+          <NavLink
+            to="/projects"
+            className={({ isActive }) =>
+              `${isActive ? "text-amber-600" : "text-black"}`
+            }
+          >
+            Projects
+          </NavLink>
         </button>
         <button className="hover:text-amber-600 duration-200">
-          <a href="#contact">Contact</a>
+          <NavLink
+            to="/contact"
+            className={({ isActive }) =>
+              `${isActive ? "text-amber-600" : "text-black"}`
+            }
+          >
+            Contact
+          </NavLink>
         </button>
       </div>
 
